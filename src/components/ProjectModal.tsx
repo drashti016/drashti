@@ -7,7 +7,7 @@ interface ProjectModalProps {
   onClose: () => void;
   project: {
     title: string;
-    image: string;
+    image?: string;
     overview: string;
     techStack: string[];
     whatIBuilt: string[];
@@ -25,15 +25,6 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
             <DialogHeader className="mb-6">
               <DialogTitle className="text-3xl font-black">{project.title}</DialogTitle>
             </DialogHeader>
-
-            {/* Project Image */}
-            <div className="rounded-xl overflow-hidden mb-8">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover"
-              />
-            </div>
 
             {/* Overview */}
             <div className="mb-8">

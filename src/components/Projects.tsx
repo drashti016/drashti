@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import ProjectModal from './ProjectModal';
-import project1Image from '@/assets/project1.jpg';
-import project2Image from '@/assets/project2.jpg';
 
 const projectsData = [
   {
     id: 1,
     title: 'Data Exporter & CRUD Dashboard',
-    image: project1Image,
     overview:
       'A full-stack dashboard application that automates data export, visualization, and PDF reporting. Built from scratch with authentication, secure password handling, CSV import/export, CRUD operations, and comprehensive user management.',
     techStack: ['Django', 'Django REST Framework', 'PostgreSQL', 'SendGrid', 'Docker'],
@@ -31,7 +28,6 @@ const projectsData = [
   {
     id: 2,
     title: 'FastAPI Thesis Summarizer',
-    image: project2Image,
     overview:
       'An intelligent document processing system that automatically summarizes exam papers and theses using FastAPI. Features asynchronous processing for handling multiple documents efficiently.',
     techStack: ['FastAPI', 'Python', 'AI/ML', 'Async Processing'],
@@ -70,49 +66,44 @@ const Projects = () => {
           SPEAK TO <span className="text-gradient">AUDIENCES</span>
         </h2>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {projectsData.map((project, index) => (
-            <div
-              key={project.id}
-              className="gradient-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-smooth group cursor-pointer animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                  <ArrowRight className="h-6 w-6 text-primary translate-x-0 group-hover:translate-x-2 transition-transform" />
+        {/* Scrollable Projects Container */}
+        <div className="relative">
+          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory">
+            {projectsData.map((project, index) => (
+              <div
+                key={project.id}
+                className="flex-shrink-0 w-[340px] md:w-[380px] gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth group cursor-pointer animate-fade-in-up snap-start"
+                style={{ animationDelay: `${index * 100}ms` }}
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="p-8 h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-2xl font-bold flex-1">{project.title}</h3>
+                    <ArrowRight className="h-6 w-6 text-primary flex-shrink-0 translate-x-0 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-6 line-clamp-3 flex-1">
+                    {project.overview}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {project.overview}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 rounded text-xs font-medium bg-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
 
-          {/* Coming Soon Card */}
-          <div className="gradient-card rounded-2xl overflow-hidden shadow-card p-8 flex items-center justify-center border-2 border-dashed border-muted-foreground/20 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-muted-foreground mb-2">More Projects</p>
-              <p className="text-sm text-muted-foreground">Coming Soon</p>
+            {/* Coming Soon Card */}
+            <div className="flex-shrink-0 w-[340px] md:w-[380px] gradient-card rounded-2xl shadow-card p-8 flex items-center justify-center border-2 border-dashed border-muted-foreground/20 animate-fade-in-up snap-start" style={{ animationDelay: '200ms' }}>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-muted-foreground mb-2">More Projects</p>
+                <p className="text-sm text-muted-foreground">Coming Soon</p>
+              </div>
             </div>
           </div>
         </div>
