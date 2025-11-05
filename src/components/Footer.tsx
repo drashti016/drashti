@@ -2,8 +2,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border bg-card">
-      <div className="container mx-auto px-6">
+    <footer className="py-3 border-t border-border bg-card">
+      <div className="mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="text-2xl font-black">

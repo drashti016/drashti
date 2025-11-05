@@ -40,12 +40,11 @@ const About = () => {
         {/* Section Title */}
         <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
           EVERYTHING ABOUT
-          <br />
-          <span className="text-gradient">DRASHTI</span>
+          <span className="text-gradient ml-3">DRASHTI</span>
         </h2>
 
         {/* Description */}
-        <div className="max-w-3xl mb-16 space-y-4 text-lg text-foreground/70">
+        <div className="mb-16 space-y-4 text-lg text-foreground/70">
           <p>
             Hi, <span className="font-bold text-foreground">Drashti</span> is a passionate{' '}
             <span className="font-bold text-foreground">Full Stack Developer</span> who loves
@@ -54,11 +53,9 @@ const About = () => {
           </p>
           <p>
             With expertise in{' '}
-            <span className="font-bold text-foreground">React, Next.js, Node.js, Express,</span> and{' '}
+            <span className="font-bold text-foreground">React, FastAPI, DRF, </span> and{' '}
             <span className="font-bold text-foreground">PostgreSQL</span>, I bring together
-            intuitive design and efficient functionality. My experience with authentication
-            systems, payment gateways, and cloud deployment makes me confident in delivering
-            production-ready solutions for real-world scenarios.
+            intuitive design and efficient functionality.
           </p>
         </div>
 

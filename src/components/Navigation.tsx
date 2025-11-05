@@ -26,7 +26,7 @@ const Navigation = () => {
         isScrolled ? 'bg-card/80 backdrop-blur-lg shadow-card' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button 
