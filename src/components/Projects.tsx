@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import ProjectModal from './ProjectModal';
+import { Button } from './ui/button';
 
 const projectsData = [
   {
@@ -50,6 +51,18 @@ const projectsData = [
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400;
+      const newScrollLeft = scrollContainerRef.current.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+      scrollContainerRef.current.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section id="projects" className="py-20 md:py-32 gradient-hero">
@@ -60,15 +73,46 @@ const Projects = () => {
         </div>
 
         {/* Section Title */}
-        <h2 className="text-5xl md:text-7xl font-black mb-16 leading-tight">
-          DESIGN BRANDS THAT
-          <br />
-          SPEAK TO <span className="text-gradient">AUDIENCES</span>
-        </h2>
+        <div className="flex items-center justify-between mb-16">
+          <h2 className="text-5xl md:text-7xl font-black leading-tight">
+            DESIGN BRANDS THAT
+            <br />
+            SPEAK TO <span className="text-gradient">AUDIENCES</span>
+          </h2>
+          
+          {/* Scroll Navigation Buttons */}
+          <div className="hidden md:flex gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => scroll('left')}
+              className="rounded-full w-12 h-12 shadow-card hover:shadow-hover"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => scroll('right')}
+              className="rounded-full w-12 h-12 shadow-card hover:shadow-hover"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+          </div>
+        </div>
 
         {/* Scrollable Projects Container */}
-        <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory">
+        <div className="relative group">
+          {/* Left Gradient Fade */}
+          <div className="absolute left-0 top-0 bottom-6 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+          
+          {/* Right Gradient Fade */}
+          <div className="absolute right-0 top-0 bottom-6 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+          
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory"
+          >
             {projectsData.map((project, index) => (
               <div
                 key={project.id}
