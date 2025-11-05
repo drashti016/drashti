@@ -46,16 +46,8 @@ const About = () => {
         {/* Description */}
         <div className="mb-16 space-y-4 text-lg text-foreground/70">
           <p>
-            Hi, <span className="font-bold text-foreground">Drashti</span> is a passionate{' '}
-            <span className="font-bold text-foreground">Full Stack Developer</span> who loves
-            crafting modern web applications that are both beautiful on the surface and
-            powerful under the hood.
-          </p>
-          <p>
-            With expertise in{' '}
-            <span className="font-bold text-foreground">React, FastAPI, DRF, </span> and{' '}
-            <span className="font-bold text-foreground">PostgreSQL</span>, I bring together
-            intuitive design and efficient functionality.
+            Hey, I’m a full-stack developer who loves creating seamless web experiences with <span className="font-bold text-foreground">React on the front end and FastAPI </span>on the backend. My focus goes beyond just building—I<span className="font-bold text-foreground"> leverage AI technologies </span>like Retrieval-Augmented Generation (RAG) to make applications smarter and more efficient. Whether it’s integrating APIs, managing databases, or optimizing performance, I’m driven by building systems that work fast and look great.
+            <span className="font-bold text-foreground"></span>
           </p>
         </div>
 
