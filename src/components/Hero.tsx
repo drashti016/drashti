@@ -54,7 +54,7 @@ const Hero = () => {
           >
             <p className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
               A WEB 
-              <span className="text-gradient ml-2">&lt;/&gt;</span>
+              <span className="text-gradient ml-2 md:ml-0">&lt;/&gt;</span>
               <br />
               DEVELOPER
             </p>

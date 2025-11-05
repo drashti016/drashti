@@ -6,50 +6,63 @@ import { Button } from "./ui/button";
 const projectsData = [
   {
     id: 1,
-    title: "Data Exporter & CRUD Dashboard",
+    title: "Data Export & PDF Generator with CRUD Operations",
     overview:
-      "A full-stack dashboard application that automates data export, visualization, and PDF reporting. Built from scratch with authentication, secure password handling, CSV import/export, CRUD operations, and comprehensive user management.",
-    techStack: [
-      "Django",
-      "Django REST Framework",
-      "PostgreSQL",
-      "SendGrid",
-      "Docker",
-    ],
+      "Developed a full-stack solution to export Excel data, perform CRUD operations, and generate PDFs from filtered datasets. Implemented secure data transfer and authentication mechanisms for safe backend communication.",
+    techStack: ["Django", "PostgreSQL", "JWT", "Pandas"],
     whatIBuilt: [
-      "Designed the entire CRUD workflow for user data management",
-      "Implemented secure JWT authentication with password hashing",
-      "Added CSV import/export functionality with background processing",
-      "Created dynamic PDF generation for reports",
-      "Built email system using SendGrid",
+      "Implemented Excel (.xlsx) data export and automated PDF generation from filtered data",
+      "Built complete CRUD operations on exported datasets",
+      "Integrated secure data transmission with backend validation",
+      "Added JWT-based authentication for secure access",
+      "Ensured production-ready deployment with proper configuration checks"
     ],
     whatILearned: [
-      "Managing production environment issues (Windows vs Linux compatibility)",
-      "Setting up Docker for consistent deployment across different systems",
-      "Importance of detailed .env and YAML configurations for deployment",
-      "True project completion means successful deployment, not just local testing",
-      "Handling file uploads and processing in Django",
-    ],
+      "Local environment setups can differ from server deployments — always test in production-like environments",
+      "Importance of securing data before sending to backend",
+      "How to implement and debug JWT authentication",
+      "Gained deeper understanding of file handling and report generation workflows"
+    ]
   },
   {
     id: 2,
-    title: "FastAPI Thesis Summarizer",
+    title: "High-Traffic FastAPI System Enhancement",
     overview:
-      "An intelligent document processing system that automatically summarizes exam papers and theses using FastAPI. Features asynchronous processing for handling multiple documents efficiently.",
-    techStack: ["FastAPI", "Python", "AI/ML", "Async Processing"],
+      "Contributed to a large-scale FastAPI project with over a million users. Focused on maintaining and improving existing APIs while ensuring compatibility and stability across backend and frontend layers.",
+    techStack: ["FastAPI", "MySQL", "Git"],
     whatIBuilt: [
-      "Created efficient session management system",
-      "Built RESTful API with comprehensive documentation",
-      "Added rate limiting and error handling mechanisms",
+      "Reviewed and optimized existing FastAPI endpoints",
+      "Debugged complex API integration issues between frontend and backend",
+      "Enhanced communication and collaboration between backend and frontend teams",
+      "Implemented minor fixes and improvements on production-grade APIs"
     ],
     whatILearned: [
-      "Session management is crucial in FastAPI applications",
-      "Understanding when to use asynchronous programming for better performance",
-      "Always test backend updates with frontend before deployment",
-      "Importance of clear API documentation and communication",
-      "Handling large file uploads and processing efficiently",
-    ],
+      "Backend functionality doesn’t guarantee frontend success — full-stack validation is key",
+      "Improved debugging and tracing skills in large-scale systems",
+      "Learned to collaborate effectively with cross-functional teams",
+      "Better understanding of handling API versioning and dependencies in production"
+    ]
   },
+  {
+    id: 3,
+    title: "AI Chatbot & Schedule Generator using FastAPI and RAG",
+    overview:
+      "Built an intelligent chatbot system integrated with scheduling functionality using FastAPI. Implemented async programming for performance optimization and applied Retrieval-Augmented Generation (RAG) for context-aware responses.",
+    techStack: ["FastAPI", "PineCone", "OpenAI API", "PostgreSQL"],
+    whatIBuilt: [
+      "Developed chatbot logic with RAG for enhanced contextual understanding",
+      "Implemented asynchronous programming for efficient performance",
+      "Integrated scheduling feature with chatbot responses",
+      "Optimized prompt design and token usage for cost-effective API calls",
+      "Managed database sessions and asynchronous operations cleanly"
+    ],
+    whatILearned: [
+      "How async programming improves performance and scalability in FastAPI",
+      "Effective prompt engineering for optimizing LLM responses",
+      "Proper session handling in async database operations",
+      "Better understanding of RAG pipeline integration and token management"
+    ]
+  }
 ];
 
 const Projects = () => {
@@ -146,18 +159,7 @@ const Projects = () => {
               </div>
             ))}
 
-            {/* Coming Soon Card */}
-            <div
-              className="flex-shrink-0 w-[340px] md:w-[380px] gradient-card rounded-2xl shadow-card p-8 flex items-center justify-center border-2 border-dashed border-muted-foreground/20 animate-fade-in-up snap-start"
-              style={{ animationDelay: "200ms" }}
-            >
-              <div className="text-center">
-                <p className="text-2xl font-bold text-muted-foreground mb-2">
-                  More Projects
-                </p>
-                <p className="text-sm text-muted-foreground">Coming Soon</p>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -5,19 +5,19 @@ const techStack = [
   {
     title: 'Frontend',
     icon: Code,
-    skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'HTML', 'CSS', 'TailwindCSS'],
+    skills: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS', 'TailwindCSS'],
     description: 'Building sleek, responsive, and accessible user interfaces.',
   },
   {
     title: 'Backend',
     icon: Server,
-    skills: ['Node.js', 'Express.js', 'Django', 'Django REST Framework', 'FastAPI'],
+    skills: ['Django', 'Django REST Framework', 'FastAPI'],
     description: 'Creating APIs and server-side logic that scales.',
   },
   {
     title: 'Databases',
     icon: Database,
-    skills: ['MongoDB', 'PostgreSQL', 'Prisma', 'SQL'],
+    skills: ['MongoDB', 'PostgreSQL', 'SQL'],
     description: 'Managing structured & unstructured data with efficiency.',
   },
   {
@@ -40,7 +40,7 @@ const About = () => {
         {/* Section Title */}
         <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
           EVERYTHING ABOUT
-          <span className="text-gradient ml-3">DRASHTI</span>
+          <span className="text-gradient ml-0 md:ml-3">DRASHTI</span>
         </h2>
 
         {/* Description */}
@@ -65,7 +65,10 @@ const About = () => {
         </div>
 
         {/* Tech Stack Title */}
-        <h3 className="text-4xl md:text-5xl font-black mb-12 text-center">MY TECH TOOLBOX</h3>
+        <h3 className="text-4xl md:text-5xl font-black mb-2 text-center">Behind the Code</h3>
+        <p className="text-xl mb-12 text-center">
+          The technologies create innovation for my projects.
+        </p>
 
         {/* Tech Stack Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">

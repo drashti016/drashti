@@ -7,6 +7,9 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  #lovable-badge {
+    display:none!important;
+  }
   :root {
     --background: 220 40% 97%;
     --foreground: 220 20% 10%;
@@ -167,6 +170,7 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display:inline-block;
   }
 
   .scrollbar-hide {

@@ -2,14 +2,31 @@ import { useEffect, useState } from 'react';
 
 const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
   const [isVisible, setIsVisible] = useState(true);
+  const [displayText, setDisplayText] = useState('');
+
+  const fullText = 'print("HELLO, WELCOME ")';
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    let index = 0;
+
+    const typingInterval = setInterval(() => {
+      if (index < fullText.length-1) {
+        setDisplayText((prev) => prev + fullText[index]);
+        index++;
+      } else {
+        clearInterval(typingInterval); // stop cleanly when finished
+      }
+    }, 100); // typing speed (ms per char)
+
+    const hideTimer = setTimeout(() => {
       setIsVisible(false);
       setTimeout(onLoadComplete, 500);
-    }, 2500);
+    }, 2000 + fullText.length * 100); // wait until typing is done before fading out
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearInterval(typingInterval);
+      clearTimeout(hideTimer);
+    };
   }, [onLoadComplete]);
 
   return (
@@ -20,12 +37,13 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
     >
       <div className="text-center space-y-6 animate-fade-in-up">
         <div className="font-mono text-xl md:text-2xl text-foreground/80 animate-glow">
-          <span className="text-primary">print</span>
-          <span>(</span>
-          <span className="text-secondary">"hello"</span>
-          <span>)</span>
+          <span>{displayText}</span>
+          {/* show cursor only while typing */}
+          {displayText.length < fullText.length && (
+            <span className="animate-pulse">|</span>
+          )}
         </div>
-        <div className="flex gap-2 justify-center">
+        <div className="flex gap-2 justify-center mt-4">
           <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
           <div className="w-2 h-2 rounded-full bg-secondary animate-bounce" style={{ animationDelay: '150ms' }} />
           <div className="w-2 h-2 rounded-full bg-accent animate-bounce" style={{ animationDelay: '300ms' }} />
