@@ -116,6 +116,47 @@ const About = () => {
             ))}
           </div>
         </div>
+
+        {/* Experience Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mt-16 mb-8">
+          <span className="text-sm font-semibold text-primary">Experience</span>
+        </div>
+
+        {/* Experience Title */}
+        <h3 className="text-4xl md:text-5xl font-black mb-12 text-center">Professional Journey</h3>
+
+        {/* Experience Card */}
+        <div className="gradient-card rounded-2xl p-8 shadow-card hover:shadow-hover transition-smooth">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+            <div>
+              <h4 className="text-2xl font-bold text-gradient mb-2">Full Stack Engineer</h4>
+              <p className="text-lg font-semibold text-foreground">Citrusbug Technolabs</p>
+            </div>
+            <div className="text-muted-foreground mt-2 md:mt-0 md:text-right">
+              <p className="font-medium">Sep 2023 – Oct 2025</p>
+              <p>Ahmedabad</p>
+            </div>
+          </div>
+          
+          <div className="space-y-3 text-foreground/80">
+            <div className="flex gap-3">
+              <span className="text-primary mt-1">•</span>
+              <p>Created an AI-powered chat web app using Retrieval-Augmented Generation (RAG) architecture, which included a Pinecone vector database for semantic search capabilities, and applied prompt engineering practices to ensure response quality while minimizing tokens.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-primary mt-1">•</span>
+              <p>Implemented a fully-featured PDF generation/export module in a web app, and containerized the application with Docker for easy deployment across platforms.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-primary mt-1">•</span>
+              <p>Contributed to a large-scale production system with millions of users live, applied advanced debugging and performance optimization skills while communicating effectively cross-team to ensure smooth delivery.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-primary mt-1">•</span>
+              <p>Improved session management and async request handling in a backend based on FastAPI, which increased throughput of the system overall.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
