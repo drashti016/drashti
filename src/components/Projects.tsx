@@ -95,43 +95,22 @@ const Projects = () => {
         </div>
 
         {/* Section Title */}
-        <div className="flex items-center justify-between mb-16">
-          <h2 className="text-5xl md:text-7xl font-black leading-tight">
-            FROM VISION TO 
-            <span className="text-gradient ml-3">LIVE WEBSITE</span>
-          </h2>
-
-          {/* Scroll Navigation Buttons */}
-          <div className="hidden md:flex gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => scroll("left")}
-              className="rounded-full w-12 h-12 shadow-card hover:shadow-hover"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => scroll("right")}
-              className="rounded-full w-12 h-12 shadow-card hover:shadow-hover"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-          </div>
-        </div>
+        <h2 className="text-5xl md:text-7xl font-black leading-tight mb-12">
+          FROM VISION TO 
+          <span className="text-gradient ml-3">LIVE WEBSITE</span>
+        </h2>
 
         {/* Scrollable Projects Container */}
         <div className="relative group">
+          {/* Desktop: Horizontal Scroll */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory"
+            className="hidden md:flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory"
           >
             {projectsData.map((project, index) => (
               <div
                 key={project.id}
-                className="flex-shrink-0 w-[340px] md:w-[380px] gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth group cursor-pointer animate-fade-in-up snap-start"
+                className="flex-shrink-0 w-[380px] gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth group cursor-pointer animate-fade-in-up snap-start"
                 style={{ animationDelay: `${index * 100}ms` }}
                 onClick={() => setSelectedProject(project)}
               >
@@ -158,9 +137,66 @@ const Projects = () => {
                 </div>
               </div>
             ))}
-
-
           </div>
+
+          {/* Mobile: Vertical Grid with Scroll */}
+          <div className="md:hidden grid grid-cols-2 gap-4 max-h-[800px] overflow-y-auto scrollbar-hide pb-6">
+            {projectsData.map((project, index) => (
+              <div
+                key={project.id}
+                className="gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth cursor-pointer animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="p-6 h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-lg font-bold flex-1 leading-tight">
+                      {project.title}
+                    </h3>
+                    <ArrowRight className="h-5 w-5 text-primary flex-shrink-0" />
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2 flex-1">
+                    {project.overview}
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {project.techStack.slice(0, 2).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 rounded-full text-[10px] font-medium bg-primary/10 text-primary border border-primary/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.techStack.length > 2 && (
+                      <span className="px-2 py-1 text-[10px] text-muted-foreground">
+                        +{project.techStack.length - 2}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll Navigation Buttons - Bottom */}
+        <div className="hidden md:flex justify-center gap-3 mt-8">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => scroll("left")}
+            className="rounded-full w-12 h-12 shadow-card hover:shadow-hover"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => scroll("right")}
+            className="rounded-full w-12 h-12 shadow-card hover:shadow-hover"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </Button>
         </div>
       </div>
 
