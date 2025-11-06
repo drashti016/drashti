@@ -139,39 +139,34 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Mobile: Vertical Grid with Scroll */}
-          <div className="md:hidden grid grid-cols-2 gap-4 max-h-[800px] overflow-y-auto scrollbar-hide pb-6">
+          {/* Mobile: Vertical Scroll with 2 Projects Visible */}
+          <div className="md:hidden flex flex-col gap-6 max-h-[1000px] overflow-y-auto scrollbar-hide snap-y snap-mandatory pb-6">
             {projectsData.map((project, index) => (
               <div
                 key={project.id}
-                className="gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth cursor-pointer animate-fade-in-up"
+                className="gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth cursor-pointer animate-fade-in-up snap-start"
                 style={{ animationDelay: `${index * 100}ms` }}
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="p-6 h-full flex flex-col">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold flex-1 leading-tight">
+                <div className="p-6 flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold flex-1 leading-tight">
                       {project.title}
                     </h3>
-                    <ArrowRight className="h-5 w-5 text-primary flex-shrink-0" />
+                    <ArrowRight className="h-6 w-6 text-primary flex-shrink-0" />
                   </div>
-                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2 flex-1">
+                  <p className="text-sm text-muted-foreground mb-6 line-clamp-3">
                     {project.overview}
                   </p>
-                  <div className="flex flex-wrap gap-1">
-                    {project.techStack.slice(0, 2).map((tech) => (
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 rounded-full text-[10px] font-medium bg-primary/10 text-primary border border-primary/20"
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.techStack.length > 2 && (
-                      <span className="px-2 py-1 text-[10px] text-muted-foreground">
-                        +{project.techStack.length - 2}
-                      </span>
-                    )}
                   </div>
                 </div>
               </div>
