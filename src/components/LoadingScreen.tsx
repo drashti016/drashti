@@ -10,7 +10,7 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
     let index = 0;
 
     const typingInterval = setInterval(() => {
-      if (index < fullText.length-1) {
+      if (index < fullText.length) {
         setDisplayText((prev) => prev + fullText[index]);
         index++;
       } else {
