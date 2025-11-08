@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import ProjectModal from "./ProjectModal";
-import { Button } from "./ui/button";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import ProjectModal from "@/components/ProjectModal";
 
 const projectsData = [
   {
@@ -57,74 +57,67 @@ const projectsData = [
   }
 ];
 
-const Projects = () => {
+const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<
     (typeof projectsData)[0] | null
   >(null);
 
-  // Show only first 3 projects on home page
-  const displayedProjects = projectsData.slice(0, 3);
-
   return (
-    <section id="projects" className="py-20 md:py-32 gradient-hero">
-      <div className="container mx-auto px-6">
-        {/* Section Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mb-8">
-          <span className="text-sm font-semibold text-primary">
-            Featured Projects
-          </span>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <Navigation />
+      
+      <main className="flex-1 py-20 md:py-32 gradient-hero">
+        <div className="container mx-auto px-6">
+          {/* Section Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mb-8">
+            <span className="text-sm font-semibold text-primary">
+              All Projects
+            </span>
+          </div>
 
-        {/* Section Title */}
-        <h2 className="text-5xl md:text-7xl font-black leading-tight mb-12">
-          From Vision to
-          <span className="text-gradient ml-3">Live Website</span>
-        </h2>
+          {/* Section Title */}
+          <h1 className="text-5xl md:text-7xl font-black leading-tight mb-12">
+            From Vision to
+            <span className="text-gradient ml-3">Live Website</span>
+          </h1>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {displayedProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className="gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth cursor-pointer animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="p-8 h-full flex flex-col">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-2xl font-bold flex-1">
-                    {project.title}
-                  </h3>
-                  <ArrowRight className="h-6 w-6 text-primary flex-shrink-0" />
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  {project.overview}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projectsData.map((project, index) => (
+              <div
+                key={project.id}
+                className="gradient-card rounded-2xl shadow-card hover:shadow-hover transition-smooth cursor-pointer animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="p-8 h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-2xl font-bold flex-1">
+                      {project.title}
+                    </h3>
+                    <ArrowRight className="h-6 w-6 text-primary flex-shrink-0" />
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-6 line-clamp-3 flex-1">
+                    {project.overview}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </main>
 
-        {/* View More Button */}
-        <div className="flex justify-center">
-          <Link to="/projects">
-            <Button size="lg" className="group">
-              View More Projects
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-        </div>
-      </div>
+      <Footer />
 
       {/* Project Modal */}
       {selectedProject && (
@@ -134,8 +127,8 @@ const Projects = () => {
           project={selectedProject}
         />
       )}
-    </section>
+    </div>
   );
 };
 
-export default Projects;
+export default ProjectsPage;
