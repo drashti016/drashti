@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -12,11 +15,26 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false); // close menu on navigation
+  const handleNavigation = (section: string) => {
+    setIsMenuOpen(false);
+    
+    // If we're on the home page, scroll to section
+    if (location.pathname === '/') {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to home with hash
+      navigate(`/#${section}`);
+      
+      // After navigation, scroll to the section
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 
@@ -30,7 +48,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection('home')}
+            onClick={() => handleNavigation('home')}
             className="text-2xl font-black tracking-tight hover:text-primary transition-smooth flex items-center"
           >
             DL
@@ -41,7 +59,7 @@ const Navigation = () => {
             {['Home', 'About', 'Projects', 'Contact'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
+                onClick={() => handleNavigation(item.toLowerCase())}
                 className="text-sm font-medium hover:text-primary transition-smooth relative group"
               >
                 {item}
@@ -53,7 +71,7 @@ const Navigation = () => {
           {/* CTA Button (Desktop) */}
           <div className="hidden md:block">
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation('contact')}
               className="gradient-accent text-primary-foreground hover:shadow-glow transition-smooth group"
             >
               Let's Talk
@@ -76,7 +94,7 @@ const Navigation = () => {
             {['Home', 'About', 'Projects', 'Contact'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
+                onClick={() => handleNavigation(item.toLowerCase())}
                 className="text-base font-medium hover:text-primary transition-smooth"
               >
                 {item}
@@ -84,7 +102,7 @@ const Navigation = () => {
             ))}
 
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation('contact')}
               className="w-full gradient-accent text-primary-foreground hover:shadow-glow transition-smooth"
             >
               Let's Talk
