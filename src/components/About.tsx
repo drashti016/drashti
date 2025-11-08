@@ -31,21 +31,25 @@ const techStack = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-16 md:py-32 bg-background relative overflow-hidden">
+      {/* Decorative element */}
+      <div className="absolute top-20 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mb-6">
           <span className="text-sm font-semibold text-primary">About Me</span>
         </div>
 
         {/* Section Title */}
-        <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-6 md:mb-8 leading-[1.15]">
           Everything About
-          <span className="text-gradient ml-0 md:ml-3">Me</span>
+          <br className="sm:hidden" />
+          <span className="text-gradient ml-0 sm:ml-3">Me</span>
         </h2>
 
         {/* Description */}
-        <div className="mb-16 space-y-4 text-lg text-foreground/70">
+        <div className="mb-12 md:mb-16 space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">
           <p>
             Hi there! I’m a Full Stack Developer who enjoys{" "}
             <span className="font-bold text-foreground">
@@ -81,17 +85,17 @@ const About = () => {
         </div>
 
         {/* Tech Stack Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-secondary/20 bg-secondary/5 mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-secondary/20 bg-secondary/5 mb-6">
           <span className="text-sm font-semibold text-secondary">
             Skills & Tech Stack
           </span>
         </div>
 
         {/* Tech Stack Title */}
-        <h3 className="text-4xl md:text-5xl font-black mb-2">
+        <h3 className="text-2xl sm:text-3xl md:text-5xl font-black mb-3 leading-[1.2]">
           Behind the Code
         </h3>
-        <p className="text-xl mb-12">
+        <p className="text-base md:text-xl mb-8 md:mb-12 text-foreground/70">
           The technologies create innovation for my projects.
         </p>
 
@@ -155,12 +159,12 @@ const About = () => {
         </div>
 
         {/* Experience Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mt-16 mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mt-12 md:mt-16 mb-6">
           <span className="text-sm font-semibold text-primary">Experience</span>
         </div>
 
         {/* Experience Title */}
-        <h3 className="text-4xl md:text-5xl font-black mb-12">
+        <h3 className="text-2xl sm:text-3xl md:text-5xl font-black mb-8 md:mb-12 leading-[1.2]">
           My <span className="text-gradient">Journey in Tech</span>
         </h3>
 

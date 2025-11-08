@@ -25,14 +25,14 @@ const Hero = () => {
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
           {/* Left Side - Name & Description */}
-          <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+          <div className="animate-fade-in-up px-4 md:px-0">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-6">
               I AM
               <br />
               <span className="text-gradient">DRASHTI</span>
             </h1>
 
-            <p className="text-base md:text-lg text-foreground/70 mb-8 max-w-lg">
+            <p className="text-base md:text-lg text-foreground/70 mb-8 max-w-lg leading-relaxed">
               I am a developer who turns your dream thoughts into reality by
               providing clear insights into your vision and offering the best
               ideas. Using the latest technology and AI, Will create the best web apps
@@ -51,10 +51,10 @@ const Hero = () => {
 
           {/* Right Side - Role */}
           <div
-            className="animate-fade-in-up"
+            className="animate-fade-in-up px-4 md:px-0"
             style={{ animationDelay: "0.2s" }}
           >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
+            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2]">
               A WEB
               <span className="text-gradient ml-2 md:ml-0">&lt;/&gt;</span>
               <br />

@@ -66,19 +66,23 @@ const Projects = () => {
   const displayedProjects = projectsData.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 md:py-32 gradient-hero">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-16 md:py-32 gradient-hero relative overflow-hidden">
+      {/* Decorative element */}
+      <div className="absolute bottom-20 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-primary/20 bg-primary/5 mb-6">
           <span className="text-sm font-semibold text-primary">
             Featured Projects
           </span>
         </div>
 
         {/* Section Title */}
-        <h2 className="text-5xl md:text-7xl font-black leading-tight mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-[1.15] mb-8 md:mb-12">
           From Vision to
-          <span className="text-gradient ml-3">Live Website</span>
+          <br className="sm:hidden" />
+          <span className="text-gradient ml-0 sm:ml-3">Live Website</span>
         </h2>
 
         {/* Projects Grid */}
