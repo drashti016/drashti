@@ -4,13 +4,13 @@ const LoadingScreen = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [displayText, setDisplayText] = useState('');
 
-  const fullText = 'print("HELLO, WELCOME ")';
+  const fullText = 'prrint("HELLO, WELCOME ")';
 
   useEffect(() => {
     let index = 0;
 
     const typingInterval = setInterval(() => {
-      if (index < fullText.length) {
+      if (index < fullText.length-1) {
         setDisplayText((prev) => prev + fullText[index]);
         index++;
       } else {
