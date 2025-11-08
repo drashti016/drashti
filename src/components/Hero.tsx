@@ -32,9 +32,11 @@ const Hero = () => {
               <span className="text-gradient">DRASHTI</span>
             </h1>
 
-            <p className="text-base md:text-lg text-foreground/70 mb-8 max-w-md">
-              A developer who loves blending creative frontends with scalable
-              backends to deliver meaningful digital products.
+            <p className="text-base md:text-lg text-foreground/70 mb-8 max-w-lg">
+              I am a developer who turns your dream thoughts into reality by
+              providing clear insights into your vision and offering the best
+              ideas. Using the latest technology and AI, Will create the best web apps
+              for you.
             </p>
 
             <Button
@@ -53,7 +55,7 @@ const Hero = () => {
             style={{ animationDelay: "0.2s" }}
           >
             <p className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
-              A WEB 
+              A WEB
               <span className="text-gradient ml-2 md:ml-0">&lt;/&gt;</span>
               <br />
               DEVELOPER

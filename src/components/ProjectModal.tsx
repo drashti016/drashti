@@ -11,7 +11,6 @@ interface ProjectModalProps {
     overview: string;
     techStack: string[];
     whatIBuilt: string[];
-    whatILearned: string[];
   };
 }
 
@@ -60,18 +59,6 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
               </ul>
             </div>
 
-            {/* What I Learned */}
-            <div>
-              <h3 className="text-xl font-bold mb-3 text-gradient">What I Learned</h3>
-              <ul className="space-y-2">
-                {project.whatILearned.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="text-secondary mt-1">▸</span>
-                    <span className="text-foreground/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </ScrollArea>
       </DialogContent>

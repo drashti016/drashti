@@ -8,59 +8,50 @@ const projectsData = [
     id: 1,
     title: "Data Export & PDF Generator with CRUD Operations",
     overview:
-      "Developed a full-stack solution to export Excel data, perform CRUD operations, and generate PDFs from filtered datasets. Implemented secure data transfer and authentication mechanisms for safe backend communication.",
+    "Created a full-stack solution for exporting data to Excel, performing CRUD functionality, and creating PDFs from filtered data. Implemented secure authentication and data transfer protocols to provide safe and reliable communication to the backend data.",
     techStack: ["Django", "PostgreSQL", "JWT", "Pandas"],
     whatIBuilt: [
-      "Implemented Excel (.xlsx) data export and automated PDF generation from filtered data",
-      "Built complete CRUD operations on exported datasets",
-      "Integrated secure data transmission with backend validation",
-      "Added JWT-based authentication for secure access",
-      "Ensured production-ready deployment with proper configuration checks"
+      "Created a fully functional application which uses secure JWT authentication in order to secure user logins and move data securely from the front end to the back end. ",
+      "Worked closely with the client throughout the project and later scaled the application based on the client's new ideas and business needs. ",
+      "Tested the whole system prior to launching it and solved any environment issues due to operating system differences with timely updates to keep the client informed. ",
+      "Built the codebase with scalability and flexibility allowing for easy extensibility and modification as project needs developed.",
     ],
-    whatILearned: [
-      "Local environment setups can differ from server deployments — always test in production-like environments",
-      "Importance of securing data before sending to backend",
-      "How to implement and debug JWT authentication",
-      "Gained deeper understanding of file handling and report generation workflows"
-    ]
   },
   {
     id: 2,
     title: "High-Traffic FastAPI System Enhancement",
     overview:
-      "Contributed to a large-scale FastAPI project with over a million users. Focused on maintaining and improving existing APIs while ensuring compatibility and stability across backend and frontend layers.",
+    "maintained and improved existing APIs while guaranteeing smooth compatibility and stability between backend and frontend systems as part of a massive FastAPI project that served over a million users.",
     techStack: ["FastAPI", "MySQL", "Git"],
     whatIBuilt: [
-      "Reviewed and optimized existing FastAPI endpoints",
-      "Debugged complex API integration issues between frontend and backend",
-      "Enhanced communication and collaboration between backend and frontend teams",
-      "Implemented minor fixes and improvements on production-grade APIs"
+      "Applied strong debugging skills to quickly identify and resolve functional issues, to ensure reliable system performance without interruption. ",
+      "Conducted comprehensive front-end testing for every system update to guarantee proper functionality and smooth front-end integration. ",
+      "Collaborated with front-end developers to clearly pass along backend changes, enabling a quicker, more seamless update process.",
+      "Optimized backend logic and performance to handle, without delay, high traffic in order to improve system stability.",
     ],
-    whatILearned: [
-      "Backend functionality doesn’t guarantee frontend success — full-stack validation is key",
-      "Improved debugging and tracing skills in large-scale systems",
-      "Learned to collaborate effectively with cross-functional teams",
-      "Better understanding of handling API versioning and dependencies in production"
-    ]
   },
   {
     id: 3,
     title: "AI Chatbot & Schedule Generator using FastAPI and RAG",
     overview:
-      "Built an intelligent chatbot system integrated with scheduling functionality using FastAPI. Implemented async programming for performance optimization and applied Retrieval-Augmented Generation (RAG) for context-aware responses.",
+    "Created an intelligent chatbot and scheduling features with FastAPI.  I used async programming to make the bot run faster and applied RAG architecture to give it context understanding to give better quality answers.",
     techStack: ["FastAPI", "PineCone", "OpenAI API", "PostgreSQL"],
     whatIBuilt: [
-      "Developed chatbot logic with RAG for enhanced contextual understanding",
-      "Implemented asynchronous programming for efficient performance",
-      "Integrated scheduling feature with chatbot responses",
-      "Optimized prompt design and token usage for cost-effective API calls",
-      "Managed database sessions and asynchronous operations cleanly"
+      "Developed an AI-based chatbot using FastAPI, PostgreSQL, and Pinecone, applying a Retrieval-Augmented Generation (RAG) architecture for accurate and informative responses based on context.",
+      "Advanced and optimized prompts to reduce tokens and improve the quality of responses, without sacrificing significant costs through API calls.",
+      "Implemented secure JWT for user access authentication and utilized SendGrid for delivery and secure email async callbacks.",
+      "Processed database sessions and async functionality efficiently for a smooth and scalable performance.",
     ],
-    whatILearned: [
-      "How async programming improves performance and scalability in FastAPI",
-      "Effective prompt engineering for optimizing LLM responses",
-      "Proper session handling in async database operations",
-      "Better understanding of RAG pipeline integration and token management"
+  },
+  {
+    id:4,
+    title:"School Paper Examination App",
+    overview:"Enhanced an existing digital assessment platform by incorporating Stripe payments with FastAPI webhooks to facilitate secure and automated transactions. Optimized system performance through improved PostgreSQL session management while adding asynchronous processing for better user experience.",
+    techStack:["FastAPI","Stripe","PostgreSQL"],
+    whatIBuilt:[
+      "Gained insight into how to securely integrate Stripe payments with FastAPI webhooks.",
+      "Grew familiarity with asynchronous programming, as well as handling database sessions for more efficient backend operations.",
+      "Further honed collaboration and debugging skills while adapting to project developments and requirements."
     ]
   }
 ];
@@ -96,8 +87,8 @@ const Projects = () => {
 
         {/* Section Title */}
         <h2 className="text-5xl md:text-7xl font-black leading-tight mb-12">
-          FROM VISION TO 
-          <span className="text-gradient ml-3">LIVE WEBSITE</span>
+          From Vision to
+          <span className="text-gradient ml-3">Live Website</span>
         </h2>
 
         {/* Scrollable Projects Container */}
